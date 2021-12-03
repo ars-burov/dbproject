@@ -30,7 +30,7 @@ setup(
     license=module.__license__,
     description=module.__doc__,
     long_description=open('README.rst').read(),
-    url='https://github.com/abayakturin/cs6083_project',
+    url='https://github.com/ars-burov/dbproject',
     python_requires='>=3.8',
     packages=find_packages(exclude=['tests']),
     install_requires=load_requirements('requirements.txt'),
