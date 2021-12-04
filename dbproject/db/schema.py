@@ -1,10 +1,20 @@
 # coding: utf-8
 from sqlalchemy import CHAR, Column, Date, DateTime, ForeignKey, ForeignKeyConstraint, Numeric, String, Table
 from sqlalchemy.orm import relationship
+from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 metadata = Base.metadata
+
+class Auth(Base):
+    __tablename__ = 'auth'
+    
+    id = Column(String(20), primary_key=True)
+    password = Column(String(20), primary_key=False)
+    role = Column(String(1), primary_key=False)
+    email = Column(String(50), primary_key=False)
+    tbl_last_date = Column(DateTime(timezone=False), server_default=func.now())
 
 class Airport(Base):
     __tablename__ = 'airport'
@@ -85,7 +95,6 @@ class Customer(Passenger):
     c_econtctno = Column(Numeric(10, 0), nullable=False)
     c_ecntcode = Column(String(4), nullable=False)
     c_type = Column(CHAR(1), nullable=False)
-
 
 class BookAgent(Customer):
     __tablename__ = 'book_agent'

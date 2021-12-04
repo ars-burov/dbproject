@@ -3,7 +3,6 @@ from aiohttp_apispec import docs
 
 from .base import BaseView
 
-
 class HelloView(BaseView):
     URL_PATH = ''
 
